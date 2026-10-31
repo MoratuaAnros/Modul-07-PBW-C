@@ -1,0 +1,183 @@
+/* ===== Dasar ===== */
+:root {
+  --cream: #fff4dc;
+  --ink: #111111;
+  --yellow: #ffd23f;
+  --pink: #ff7eb6;
+  --blue: #59c3f7;
+  --mint: #7ee8b0;
+  --line: 3px solid var(--ink);
+  --shadow: 5px 5px 0 var(--ink);
+  --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+  color: var(--ink);
+  background-color: var(--cream);
+  background-image: radial-gradient(rgba(17, 17, 17, 0.18) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+h1, h2, h3 { letter-spacing: -0.02em; }
+h2 { margin: 0 0 14px; font-size: 2rem; line-height: 1.1; font-weight: 900; }
+a { color: var(--ink); font-weight: 700; }
+
+/* ===== Tata letak: sidebar di kiri ===== */
+.shell {
+  display: grid; grid-template-columns: 250px 1fr; min-height: 100vh;
+  /* kolom kuning sidebar memanjang sampai bawah halaman */
+  background: linear-gradient(90deg, var(--yellow) 0 247px, var(--ink) 247px 250px, transparent 250px);
+}
+.sidebar {
+  display: flex; flex-direction: column; gap: 30px;
+  padding: 26px 20px; background: var(--yellow); border-right: var(--line);
+}
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand h1 { margin: 0; font-size: 1.35rem; line-height: 1.1; font-weight: 900; }
+.logo {
+  display: grid; place-items: center; flex: none; width: 46px; height: 46px;
+  background: var(--ink); color: var(--yellow); border-radius: 12px;
+  font-family: var(--mono); font-weight: 800; transform: rotate(-6deg);
+}
+nav { display: flex; flex-direction: column; gap: 12px; }
+nav a {
+  display: block; padding: 10px 14px; background: white; color: var(--ink);
+  border: var(--line); border-radius: 12px; box-shadow: 3px 3px 0 var(--ink);
+  font-weight: 800; text-decoration: none;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+nav a:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--ink); }
+nav a.active { background: var(--ink); color: var(--yellow); }
+.content { min-width: 0; padding: 34px 38px 0; }
+main { max-width: 1020px; min-height: 70vh; padding-bottom: 40px; }
+
+/* ===== Beranda ===== */
+.hero {
+  position: relative; padding: 38px 34px 36px; background: var(--pink);
+  border: var(--line); border-radius: 22px; box-shadow: 8px 8px 0 var(--ink);
+}
+.hero h2 { max-width: 14ch; font-size: 2.8rem; }
+.hero p { margin: 0 0 22px; max-width: 44ch; font-size: 1.1rem; font-weight: 600; }
+.hero::after {
+  content: "\2665  FAVORIT"; position: absolute; top: -16px; right: 26px;
+  padding: 6px 14px; background: var(--yellow); border: var(--line); border-radius: 999px;
+  font-family: var(--mono); font-weight: 800; font-size: 0.85rem; transform: rotate(5deg);
+}
+.cta {
+  display: inline-block; padding: 12px 24px; background: var(--ink); color: var(--yellow);
+  border: var(--line); border-radius: 14px; box-shadow: 4px 4px 0 rgba(17, 17, 17, 0.35);
+  font-weight: 800; text-decoration: none;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.cta:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 rgba(17, 17, 17, 0.35); }
+.features {
+  display: grid; gap: 22px; margin-top: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+}
+.feature {
+  padding: 20px; border: var(--line); border-radius: 18px; box-shadow: var(--shadow);
+}
+.feature:nth-child(1) { background: var(--mint); transform: rotate(-1.2deg); }
+.feature:nth-child(2) { background: var(--blue); transform: rotate(1deg); }
+.feature:nth-child(3) { background: var(--yellow); transform: rotate(-0.8deg); }
+.feature span { font-size: 1.8rem; }
+.feature h3 { margin: 6px 0 4px; font-size: 1.15rem; font-weight: 900; }
+.feature p { margin: 0; font-size: 0.95rem; font-weight: 500; }
+
+/* ===== Form pencarian ===== */
+.toolbar {
+  display: flex; flex-wrap: wrap; align-items: flex-end; gap: 16px;
+  padding: 18px 20px; background: white; border: var(--line);
+  border-radius: 18px; box-shadow: var(--shadow);
+}
+.field { display: flex; flex-direction: column; gap: 4px; }
+label { font-family: var(--mono); font-size: 0.8rem; font-weight: 800; text-transform: uppercase; }
+input, select {
+  font: inherit; font-weight: 600; min-width: 190px; padding: 10px 12px;
+  color: var(--ink); background: white; border: var(--line); border-radius: 12px;
+}
+input:focus, select:focus { background: #fffbe0; }
+.count { margin: 20px 0 0; font-family: var(--mono); font-weight: 800; }
+
+/* ===== Tombol ===== */
+button {
+  font: inherit; font-weight: 800; cursor: pointer; padding: 10px 18px;
+  color: var(--ink); background: white; border: var(--line); border-radius: 12px;
+  box-shadow: 3px 3px 0 var(--ink);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+button:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--ink); }
+button:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+button.secondary { background: var(--yellow); }
+button.danger { background: white; color: #b00020; }
+.fav-btn { width: 100%; }
+.fav-btn::before { content: "\2661\00a0"; }
+.fav-btn[aria-pressed="true"] { background: var(--pink); }
+.fav-btn[aria-pressed="true"]::before { content: "\2665\00a0"; }
+:focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; }
+
+/* ===== Kartu produk ===== */
+.grid {
+  display: grid; gap: 26px; margin: 22px 0;
+  grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+}
+.card {
+  overflow: hidden; background: white; border: var(--line);
+  border-radius: 20px; box-shadow: 6px 6px 0 var(--ink);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.card:hover { transform: translate(-3px, -3px); box-shadow: 9px 9px 0 var(--ink); }
+.thumb { display: grid; place-items: center; height: 130px; font-size: 3.4rem; border-bottom: var(--line); }
+.card[data-category="Buku"] .thumb { background: var(--blue); }
+.card[data-category="Aksesori"] .thumb { background: var(--mint); }
+.card-body { padding: 16px 18px 20px; }
+.card h3 { margin: 8px 0 2px; font-size: 1.2rem; font-weight: 900; }
+.card h3 a { text-decoration: none; }
+.card h3 a:hover { text-decoration: underline; text-decoration-thickness: 3px; }
+.category {
+  display: inline-block; margin: 0; padding: 2px 10px; background: var(--yellow);
+  border: 2px solid var(--ink); border-radius: 999px;
+  font-family: var(--mono); font-size: 0.75rem; font-weight: 800; text-transform: uppercase;
+}
+.price {
+  display: inline-block; margin: 2px 0 16px; font-family: var(--mono);
+  font-size: 1.3rem; font-weight: 800;
+  background: linear-gradient(transparent 58%, var(--yellow) 58%);
+}
+
+/* ===== Halaman lain ===== */
+.section-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; }
+.section-head h2 { margin: 0; }
+.detail .card { max-width: 330px; }
+.back { display: inline-block; margin-top: 6px; }
+.empty {
+  margin: 22px 0; padding: 30px; text-align: center; font-weight: 700;
+  background: white; border: 3px dashed var(--ink); border-radius: 18px;
+}
+.panel { padding: 30px; background: white; border: var(--line); border-radius: 20px; box-shadow: 8px 8px 0 var(--ink); }
+.panel p { max-width: 62ch; }
+.alert { padding: 12px 16px; background: var(--pink); border: var(--line); border-radius: 14px; font-weight: 700; }
+.site-footer { padding: 18px 0 26px; font-family: var(--mono); font-size: 0.8rem; font-weight: 700; }
+
+/* ===== Layar kecil dan preferensi gerak ===== */
+@media (max-width: 800px) {
+  .shell { grid-template-columns: 1fr; background: none; }
+  .sidebar {
+    position: static; height: auto; flex-direction: row; flex-wrap: wrap;
+    align-items: center; gap: 14px 18px; padding: 16px 18px;
+    border-right: 0; border-bottom: var(--line);
+  }
+  nav { flex-direction: row; flex-wrap: wrap; gap: 10px; }
+  nav a { padding: 7px 12px; }
+  .content { padding: 24px 18px 0; }
+  .hero { padding: 30px 22px; }
+  .hero h2 { font-size: 2.1rem; }
+  .field, input, select { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  nav a, .cta, button, .card { transition: none; }
+  nav a:hover, .cta:hover, button:hover, .card:hover { transform: none; }
+}
+ 
